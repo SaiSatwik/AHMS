@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>newuser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+<script src="main.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js">
+<link rel="stylesheet" href="newuser.css">
+<script>
+	function validatePassword() {
+		var p = document.getElementById('pass').value;
+		var minNumberofChars = 6;
+		errors = [];
+		var fla = 0;
+		if (p.length < 8) {
+			errors.push("Your password must be at least 8 characters");
+			fla = 1;
+		}
+		if (p.search(/[a-z]/i) < 0) {
+			errors.push("Your password must contain at least one letter.");
+			fla = 1;
+		}
+		if (p.search(/[0-9]/) < 0) {
+			errors.push("Your password must contain at least one digit.");
+			fla = 1;
+		}
+		if (errors.length > 0) {
+			window.alert(errors.join("\n"));
+			fla = 1;
+			return false;
+		}
+		if (fla == 0) {
+			window.alert("Congratulations you have sign up successful!!!");
+			return true;
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="new">
+		<form class="ui form" method="post" action="success.jsp?ide=1">
+			<br> <br>
+			<h3 class="ui dividing header">Fill in Information</h3>
+			<div class="field">
+				<div class="two fields">
+					<div class="field">
+
+						<label>Name</label> <input type="text" name="name"
+							placeholder="Enter your name">
+					</div>
+					<div class="field">
+
+						<label>Password</label> <input type="password" name="pwd"
+							id="pass" placeholder="Enter a password">
+
+					</div>
+
+				</div>
+			</div>
+			<div class="two fields">
+				<div class="field">
+					<label>Contact number</label> <input type="text" name="pno"
+						placeholder="phone number">
+
+				</div>
+				<div class="field">
+					<label for="">Email id</label> <input type="text" name="pemail"
+						placeholder="email id">
+				</div>
+			</div>
+			<div class="three fields">
+				<div class="field">
+					<label>Your Address</label> <input type="text" name="street"
+						placeholder="Street Address">
+				</div>
+				<div class=" field">
+					<label for="">locality/Area</label> <input type="text" name="area"
+						placeholder="Area">
+				</div>
+				<div class="field">
+					<label for="">Adhaar number</label> <input type="text"
+						name="aadhar" placeholder="adhaar number">
+				</div>
+
+			</div>
+			<div class="two fields">
+				<div class="field">
+					<label>State</label> <select class="ui fluid dropdown" name="state">
+						<option value="state">State</option>
+						<option value="AP">Andhra Pradesh</option>
+						<option value="Arunachal">Arunachal pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="KA">Karnataka</option>
+						<option value="Assam">Kerala</option>
+						<option value="KA">Tamil Nadu</option>
+					</select>
+				</div>
+				<div class="field">
+					<label>Country</label>
+					<div class="field">
+
+						<select class="ui fluid dropdown" name="country">
+							<option value="country">Country</option>
+							<option value="India">India</option>
+							<option value="Bangladesh">Bangladesh</option>
+							<option value="Pakistan">Pakistan</option>
+							<option value="Srilanka">Srilanka</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<a href="success.jsp?ide=1" onclick="validatePassword()">
+				<center>
+					<button class="ui green button">Submit</button>
+				</center>
+			</a>
+
+		</form>
+	</div>
+</body>
+</html>
